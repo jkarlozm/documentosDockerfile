@@ -1,14 +1,11 @@
 #Imagen base
-FROM nginx:stable-perl
+FROM nginx:latest
 
 #Definimos deirectorio de trabajo
 WORKDIR /usr/share/nginx/html
 
+#Eliminamos archivos en el directorio de trabajo
+RUN rm -r *
+
 #Copiado de archivos
-#COPY . .
-
-#Puertos
-EXPOSE 3030
-
-#Volumenes
-VOLUME ["."]
+COPY ./foodmenu/ .
